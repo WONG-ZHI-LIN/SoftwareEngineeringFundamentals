@@ -1,0 +1,23 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start(); // Start the session if not started
+}
+?>
+
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Member DashBoard
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="font-size: large;">
+    <?php if(isset($_SESSION['member_id'])) : ?>
+      <a class="dropdown-item" href="profile.php">Edit Profile</a>
+      <a class="dropdown-item" href="schedule.php">Manage Classes</a>
+      <a class="dropdown-item" href="tracker.php">Fitness Progress</a>
+      <a class="dropdown-item" href="payment_history.php">Payment History</a>
+      <a class="dropdown-item" href="logout.php">Logout</a>
+    <?php else : ?>
+      <a class="dropdown-item" href="login.php">Login</a>
+      <a class="dropdown-item" href="signup.php">Sign Up</a>
+    <?php endif; ?>
+  </div>
+</li>
